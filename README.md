@@ -34,7 +34,7 @@ func initialize(actor, blackboard):
 	_valid = actor.is_walkable_location(_location)
 	
 func update(actor, blackboard, delta): 
-	if !_valid: return Status.FAILURE
+	if not _valid: return Status.FAILURE
 	blackboard.store(_key, _location)
 	return Status.SUCCESS
 ```
