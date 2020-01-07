@@ -65,7 +65,7 @@ func update(actor, blackboard, delta):
 
 ```python
 extends Behaviour
-class_name UnitWait
+class_name AgentWait
 
 var _counter = 0
 var _time = 0
@@ -96,16 +96,16 @@ func _ready():
 ```python
 static func MoveToActiveObject(object_key, location_key):
 	return Composites.Parallel.new(	Composites.Policy.ALL, [
-										Decorators.Inverser(AgentObjectInvalid.new(object_key)),
-										AgentMove.new(location_key)
-									])
+						Decorators.Inverser(AgentObjectInvalid.new(object_key)),
+						AgentMove.new(location_key)
+					])
 									
 static func CutTrees():
 	return 	Composites.Sequence.new([
-				AgentFindObject.new("trees", "o:tree", "l:tree"),
-				MoveToActiveObject("o:tree", "l:tree"),
-				AgentDestroy.new("o:tree")
-			])
+			AgentFindObject.new("trees", "o:tree", "l:tree"),
+			MoveToActiveObject("o:tree", "l:tree"),
+			AgentDestroy.new("o:tree")
+		])
 ```
 
 **enjoy!**
